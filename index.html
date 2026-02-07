@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ross & Co. Tech</title>
+  <meta name="description" content="Straight-up PC repair & advice. No upsells. No bullshit." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="./assets/RTC Logo.png" alt="Ross & Co. Tech Logo" class="logo"/>
+        <span class="brand-name">Ross &amp; Co. Tech</span>
+      </a>      
+
+      <nav class="nav">
+        <a href="#services">Services</a>
+        <a href="#why">Why</a>
+        <a href="#contact">Contact</a>
+        <button id="authBtn" class="btn btn-ghost" type="button">Login</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-left">
+          <h1>Straight-up PC repair &amp; advice.<br><span class="muted">No upsells. No bullshit.</span></h1>
+          <p class="lead">
+            Custom builds, repairs, and consultations from someone who actually knows what they’re doing.
+            Clean work. Clear pricing. Plain English.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn btn-solid" href="#contact">Book a Consultation</a>
+            <a class="btn btn-ghost" href="#contact">Get a Repair Quote</a>
+          </div>
+
+          <div class="micro">
+            <span class="chip">📍 Suffolk, UK</span>
+            <span class="chip">Right-to-repair mindset</span>
+            <span class="chip">No manufacturer affiliations</span>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="panel">
+            <div class="panel-top">
+              <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+            </div>
+            <pre class="code">
+$ diagnose --honest
+✓ no scare tactics
+✓ no useless “cleaners”
+✓ no forced upgrades
+→ only what you need</pre>
+            <div class="panel-bottom">
+              <span class="quiet">Fast replies • Transparent quotes • No nonsense</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why" class="strip">
+      <div class="container strip-inner">
+        <h2>Most people don’t need a new PC.<br><span class="muted">They need honest advice.</span></h2>
+        <ul class="bullets">
+          <li>Right-to-repair mindset</li>
+          <li>No brand commissions</li>
+          <li>Explained in plain English</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="services" class="services">
+      <div class="container">
+        <div class="section-head">
+          <h2>Services</h2>
+          <p class="quiet">Launch set. Clean and focused. More later.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <h3>PC Consultation</h3>
+            <p class="quiet">Buying advice, upgrade paths, setup optimisation, fixing “why is this slow?”</p>
+            <div class="meta">
+              <span class="tag">30–45 mins</span>
+              <span class="tag">Video or in-person</span>
+            </div>
+            <a class="card-link" href="#contact">Book →</a>
+          </article>
+
+          <article class="card">
+            <h3>PC Repair</h3>
+            <p class="quiet">Hardware &amp; software repairs. Diagnosis first, quote before work.</p>
+            <div class="meta">
+              <span class="tag">Free diagnosis</span>
+              <span class="tag">Transparent pricing</span>
+            </div>
+            <a class="card-link" href="#contact">Get a quote →</a>
+          </article>
+
+          <article class="card">
+            <h3>Custom Builds</h3>
+            <p class="quiet">No prebuilts, no bloat, no “gamer tax”. Built for longevity.</p>
+            <div class="meta">
+              <span class="tag">By request</span>
+              <span class="tag">Parts you need</span>
+            </div>
+            <a class="card-link" href="#contact">Enquire →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about">
+      <div class="container about-inner">
+        <h2>Why this exists</h2>
+        <p class="lead">
+          I kept seeing people overcharged, misled, or sold things they didn’t need.
+          Ross &amp; Co Tech is the opposite of that.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container contact-inner">
+        <div>
+          <h2>Contact</h2>
+          <p class="quiet">For now: simple + direct. Domain later. Booking system next.</p>
+
+          <div class="contact-grid">
+            <a class="contact-item" href="mailto:hello@rosscotech.uk">
+              <span class="label">Email</span>
+              <span class="value">hello@rosscotech.uk</span>
+            </a>
+            <a class="contact-item" href="#" onclick="alert('Add your Instagram link here.'); return false;">
+              <span class="label">Instagram</span>
+              <span class="value">@rossandcotech</span>
+            </a>
+            <a class="contact-item" href="./dashboard.html">
+              <span class="label">Client Portal</span>
+              <span class="value">Login required →</span>
+            </a>
+          </div>
+
+          <p class="fineprint">Independent. No manufacturer affiliations.</p>
+        </div>
+
+        <div class="panel panel-plain">
+          <h3>Quick booking</h3>
+          <p class="quiet">Tell us whats wrong and we’ll get back to you.</p>
+          <form id="bookingForm">
+            <label class="field">
+              <span>Name</span>
+              <input id="nameInput" type="text" placeholder="Jake" required />
+            </label>
+
+            <label class="field">
+              <span>What do you need?</span>
+              <textarea id="need" placeholder="Repair / consultation / build... be brief." required></textarea>
+            </label>
+
+            <button class="btn btn-solid" type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <span class="brand-mark">R&amp;Co</span>
+        <span class="quiet">Ross &amp; Co. Tech • Suffolk, UK</span>
+      </div>
+      <div class="footer-right">
+        <span class="quiet">© <span id="year"></span></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Auth Modal -->
+  <div id="modalBackdrop" class="modal-backdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head">
+        <h3 id="modalTitle">Login</h3>
+        <button id="closeModal" class="icon-btn" aria-label="Close">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <button id="googleBtn" class="btn btn-ghost btn-wide" type="button">Continue with Google</button>
+
+        <div class="divider"><span>or</span></div>
+
+        <form id="emailForm">
+          <label class="field">
+            <span>Email</span>
+            <input id="email" type="email" placeholder="you@example.com" required />
+          </label>
+
+          <label class="field">
+            <span>Password</span>
+            <input id="password" type="password" placeholder="••••••••" minlength="6" required />
+          </label>
+
+          <button class="btn btn-solid btn-wide" type="submit">Login / Create account</button>
+        </form>
+
+        <p class="fineprint">
+          Using email+password will create an account if it doesn’t exist.
+        </p>
+
+        <p id="authMsg" class="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./app.js"></script>
+
+<button id="testRedirect" style="position:fixed;bottom:20px;right:20px;z-index:9999;">
+TEST REDIRECT
+</button>
+
+</body>
+</html>

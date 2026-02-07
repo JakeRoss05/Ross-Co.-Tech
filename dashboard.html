@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Client Portal • Ross & Co Tech</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="./assets/RTC Logo.png" alt="Ross & Co. Tech Logo" class="logo"/>
+        <span class="brand-name">Ross &amp; Co. Tech</span>
+      </a>  
+
+      <nav class="nav">
+        <a href="index.html#services">Services</a>
+        <a href="index.html#contact">Contact</a>
+        <button id="logoutBtn" class="btn btn-ghost" type="button">Logout</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="services">
+    <div class="container">
+      <div class="section-head">
+        <h2>Client Portal</h2>
+        <p class="quiet" id="userLine">Checking auth…</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <h3>Bookings</h3>
+          <p class="quiet">This is where your booked consults/repairs will show up (Firestore next).</p>
+          <span class="tag">Coming soon</span>
+        </article>
+
+        <article class="card">
+          <h3>Quotes</h3>
+          <p class="quiet">Quotes + status updates live here.</p>
+          <span class="tag">Coming soon</span>
+        </article>
+
+        <article class="card">
+          <h3>Invoices</h3>
+          <p class="quiet">Receipts + payment links.</p>
+          <span class="tag">Coming soon</span>
+        </article>
+      </div>
+
+      <p class="fineprint">If you can see this page while logged out, your auth gate isn’t working.</p>
+    </div>
+  </main>
+
+  <script type="module" src="dashboard.js"></script>
+</body>
+</html>

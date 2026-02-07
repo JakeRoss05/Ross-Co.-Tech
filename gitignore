@@ -1,0 +1,16 @@
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor stuff
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Firebase local cache (if ever added)
+.firebase/
+
+# Node junk (only if it exists)
+node_modules/
