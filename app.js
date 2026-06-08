@@ -69,7 +69,7 @@ authBtn?.addEventListener("click", async () => {
 });
 
 // Google login
-googleBtn.addEventListener("click", async () => {
+googleBtn?.addEventListener("click", async () => {
   authMsg.textContent = "Opening Google…";
   try {
     await signInWithPopup(auth, provider);
@@ -82,7 +82,7 @@ googleBtn.addEventListener("click", async () => {
 
 
 // Email login / signup
-emailForm.addEventListener("submit", async (e) => {
+emailForm?.addEventListener("submit", async (e) => {
   e.preventDefault();
   authMsg.textContent = "Checking…";
 
@@ -90,7 +90,7 @@ emailForm.addEventListener("submit", async (e) => {
   const password = passwordEl.value;
 
   try {
-    // LOGIN
+    // LOGIN (if Auth functions available)
     await signInWithEmailAndPassword(auth, email, password);
     console.log("EMAIL LOGIN SUCCESS — redirecting");
     window.location.href = "./dashboard.html";
@@ -135,13 +135,18 @@ bookingForm?.addEventListener("submit", async (e) => {
   if (!name || !message) return;
 
   try {
-    await addDoc(collection(db, "submissions"), {
-      name,
-      message,
-      userId: auth.currentUser?.uid || null,
-      createdAt: serverTimestamp(),
-      source: "website"
-    });
+    // If Firestore isn't configured, skip the network save but continue
+    if (typeof addDoc === "function" && typeof db !== "undefined") {
+      await addDoc(collection(db, "submissions"), {
+        name,
+        message,
+        userId: auth.currentUser?.uid || null,
+        createdAt: typeof serverTimestamp === "function" ? serverTimestamp() : null,
+        source: "website"
+      });
+    } else {
+      console.warn("Firestore not configured — skipping remote save");
+    }
 
     bookingForm.reset();
     alert("Submitted. I’ll get back to you shortly.");
@@ -150,4 +155,41 @@ bookingForm?.addEventListener("submit", async (e) => {
     console.error("Submission failed:", err);
     alert("Something went wrong. Try again.");
   }
+});
+
+// Make horizontal card collections draggable (pointer events)
+document.querySelectorAll(".cards").forEach((cards) => {
+  let isDragging = false;
+  let startX;
+  let startScrollLeft;
+
+  cards.addEventListener("pointerdown", (e) => {
+    isDragging = true;
+    cards.classList.add("dragging");
+
+    startX = e.clientX - cards.offsetLeft;
+    startScrollLeft = cards.scrollLeft;
+
+    if (typeof e.pointerId !== "undefined") cards.setPointerCapture(e.pointerId);
+  });
+
+  cards.addEventListener("pointermove", (e) => {
+    if (!isDragging) return;
+
+    const distanceMoved = e.clientX - startX;
+    cards.scrollLeft = startScrollLeft - distanceMoved;
+
+  });
+
+  const endDrag = (e) => {
+    isDragging = false;
+    cards.classList.remove("dragging");
+    if (typeof e?.pointerId !== "undefined") {
+      try { cards.releasePointerCapture(e.pointerId); } catch (_) { }
+    }
+  };
+
+  cards.addEventListener("pointerup", endDrag);
+  cards.addEventListener("pointercancel", endDrag);
+  cards.addEventListener("pointerleave", endDrag);
 });
